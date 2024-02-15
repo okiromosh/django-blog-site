@@ -3,4 +3,18 @@
 
 {% block content %}
     <h3>Index Page</h3>
+
+    {% for post in posts %}
+    <div>
+        <section>
+            <h4>{{ post.title}}</h4>
+            <div>
+                <p>
+                    {{ post.content }}
+                </p>
+            </div>
+            <span>{{ post.date_published}}</span>
+        </section>
+    </div>
+    {% endfor %}
 {% endblock %}
