@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'markdownify.apps.MarkdownifyConfig',
 ]
 
+
+AUTH_USER_MODEL = "blog.User"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

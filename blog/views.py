@@ -1,14 +1,42 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import login, logout, authenticate
+from django.contrib import messages
 from .models import *
 from .forms import PostForm
 
 # Create your views here.
 
 
+def loginView(request):
+    page = 'login'
+
+    if request.method == 'POST':
+        email = request.POST.get('email').lower()
+        password = request.POST.get('password')
+
+        try:
+            user = User.objects.get(email=email)
+        except:
+            messages.error(request, 'User does not exist!')
+
+        user = authenticate(request, email=email, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'Username OR Password is not correct!')
+
+    context = {'page': page}
+    context = {}
+
+    return render(request, 'login.html')
+
+
 def index(request):
     posts = Post.objects.all()
     context = {
-        'posts':posts,
+        'posts': posts,
     }
     return render(request, 'index.html', context)
 
