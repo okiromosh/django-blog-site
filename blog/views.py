@@ -59,3 +59,12 @@ def create(request):
         'form': form,
     }
     return render(request, 'create.html', context)
+
+
+def blog(request, pk):
+    post = Post.objects.get(pk=pk)
+    context = {
+        'post': post,
+    }
+    return render(request, 'blog.html', context)
+

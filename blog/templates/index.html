@@ -7,13 +7,14 @@
     {% for post in posts %}
     <div>
         <section>
-            <h4>{{ post.title}}</h4>
+            <h4 ><a href="{% url 'blog' post.id %}">{{ post.title}}</a></h4>
             <div>
                 <p>
                     {{ post.content }}
                 </p>
             </div>
-            <span>{{ post.date_published}}</span>
+            <span>{{ post.date_published }}</span>
+            <span>{{ post.author }}</span>
         </section>
     </div>
     {% endfor %}

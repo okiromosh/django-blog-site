@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <div class="blog">
+        <h4>{{ post.title }}</h4>
+        <div class="blog-meta">
+            <span>by {{ post.author }}</span>
+            <span>on {{ post.date_published }}</span>
+        </div>
+        <div class="content">
+            <p>{{ post.content }}</p>
+        </div>
+    </div>
+    <br>
+
+    <div class="comments">
+        <h3>comments.</h3>
+        <div>
+            <p>these are the comments</p>
+        </div>
+    </div>
+
+{% endblock %}
