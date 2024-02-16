@@ -33,7 +33,13 @@ def loginView(request):
     return render(request, 'login.html')
 
 
+def logoutView(request):
+    logout(request)
+    return redirect('index')
+
+
 def index(request):
+
     posts = Post.objects.all()
     context = {
         'posts': posts,
