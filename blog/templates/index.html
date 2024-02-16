@@ -3,6 +3,7 @@
 
 {% block content %}
     <h3>Index Page</h3>
+    <button><a href="{% url 'create' %}">create a blog post</a> </button>
 
     {% for post in posts %}
     <div>
