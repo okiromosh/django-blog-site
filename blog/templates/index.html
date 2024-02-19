@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+{% load blog_extras %}
 
 {% block content %}
     <h3>Index Page</h3>
@@ -11,7 +12,7 @@
             <h4 ><a href="{% url 'blog' post.id %}">{{ post.title}}</a></h4>
             <div>
                 <p>
-                    {{ post.content }}
+                    {{ post.content | convert_markdown | safe }}
                 </p>
             </div>
             <span>{{ post.date_published }}</span>
